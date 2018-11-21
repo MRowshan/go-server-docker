@@ -1,0 +1,19 @@
+Started on Nov 21, 2018 2:11:49 PM
+Started by event from 172.19.0.3 ⇒ http://jenkins:8080/github-webhook/ on Wed Nov 21 14:11:49 UTC 2018
+Polling SCM changes on master
+Using strategy: Default
+[poll] Last Built Revision: Revision 6139a692cd1a66717b798c7c6d76ad074683dae8 (origin/branch1)
+ > git rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repositories
+ > git config remote.origin.url https://github.com/MRowshan/go-http-server # timeout=10
+Fetching upstream changes from https://github.com/MRowshan/go-http-server
+ > git --version # timeout=10
+ > git fetch --tags --progress https://github.com/MRowshan/go-http-server +refs/heads/*:refs/remotes/origin/*
+Polling for changes in
+Seen branch in repository origin/branch1
+Seen branch in repository origin/master
+Seen 2 remote branches
+ > git show-ref --tags -d # timeout=10
+ > git log --full-history --no-abbrev --format=raw -M -m 6139a692cd1a66717b798c7c6d76ad074683dae8..0a6bfb356e69eb1ed46e089e4c58728a7e78513e # timeout=10
+Done. Took 0.81 sec
+Changes found

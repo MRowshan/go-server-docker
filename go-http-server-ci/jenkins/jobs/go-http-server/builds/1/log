@@ -1,0 +1,105 @@
+Started by an SCM change
+Building in workspace /var/jenkins_home/jobs/go-http-server/workspace
+Cloning the remote Git repository
+Cloning repository https://github.com/mrowshan/go-http-server
+ > git init /var/jenkins_home/jobs/go-http-server/workspace # timeout=10
+Fetching upstream changes from https://github.com/mrowshan/go-http-server
+ > git --version # timeout=10
+ > git fetch --tags --progress https://github.com/mrowshan/go-http-server +refs/heads/*:refs/remotes/origin/*
+ > git config remote.origin.url https://github.com/mrowshan/go-http-server # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/mrowshan/go-http-server # timeout=10
+Fetching upstream changes from https://github.com/mrowshan/go-http-server
+ > git fetch --tags --progress https://github.com/mrowshan/go-http-server +refs/heads/*:refs/remotes/origin/*
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+ > git rev-parse refs/remotes/origin/origin/master^{commit} # timeout=10
+Checking out Revision 132a9f7237ce3504e1cf98511f282fe879220440 (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 132a9f7237ce3504e1cf98511f282fe879220440
+Commit message: "added docker-script for go server"
+First time build. Skipping changelog.
+[workspace] $ /bin/sh -xe /tmp/jenkins3885794558923515615.sh
++ docker=sudo docker
++ application=go-http-server
++ port=9090
++ sudo docker build -t go-http-server .
+Sending build context to Docker daemon  10.39MB
+Step 1/5 : FROM golang
+Trying to pull repository docker.io/library/golang ... 
+latest: Pulling from docker.io/library/golang
+54f7e8ac135a: Pulling fs layer
+d6341e30912f: Pulling fs layer
+087a57faf949: Pulling fs layer
+5d71636fb824: Pulling fs layer
+f368dba6a331: Pulling fs layer
+f2e97ec220f9: Pulling fs layer
+e4c39f2ed8c2: Pulling fs layer
+5d71636fb824: Waiting
+f368dba6a331: Waiting
+f2e97ec220f9: Waiting
+e4c39f2ed8c2: Waiting
+087a57faf949: Verifying Checksum
+087a57faf949: Download complete
+d6341e30912f: Verifying Checksum
+d6341e30912f: Download complete
+54f7e8ac135a: Verifying Checksum
+54f7e8ac135a: Download complete
+5d71636fb824: Verifying Checksum
+5d71636fb824: Download complete
+f368dba6a331: Verifying Checksum
+f368dba6a331: Download complete
+e4c39f2ed8c2: Verifying Checksum
+e4c39f2ed8c2: Download complete
+f2e97ec220f9: Verifying Checksum
+f2e97ec220f9: Download complete
+54f7e8ac135a: Pull complete
+d6341e30912f: Pull complete
+087a57faf949: Pull complete
+5d71636fb824: Pull complete
+f368dba6a331: Pull complete
+f2e97ec220f9: Pull complete
+e4c39f2ed8c2: Pull complete
+Digest: sha256:41b92066537ec44eb6b79d67e6cfaa2f1085ceba5bb5257f325e4fd3338888a0
+Status: Downloaded newer image for docker.io/golang:latest
+ ---> df6ac9d1bf64
+Step 2/5 : COPY go/src/app/app /opt/go-http-server/app
+ ---> df7b3d612ba9
+Removing intermediate container 347dc387f00d
+Step 3/5 : COPY go/src/app/static /opt/go-http-server/static
+ ---> c84e8ff0da9d
+Removing intermediate container 559d2490e922
+Step 4/5 : WORKDIR "/opt/go-http-server"
+ ---> 5d0b7dab237a
+Removing intermediate container 64554a85d06f
+Step 5/5 : ENTRYPOINT /opt/go-http-server/app
+ ---> Running in 8e9027afa901
+ ---> e6ce1f4f852f
+Removing intermediate container 8e9027afa901
+Successfully built e6ce1f4f852f
++ grep go-http-server
++ sudo docker ps
++ echo doesn't exist
+doesn't exist
++ sudo docker run -d -p 9090:9090 --name go-http-server mustakim/go-http-server
+Unable to find image 'mustakim/go-http-server:latest' locally
+Trying to pull repository docker.io/mustakim/go-http-server ... 
+latest: Pulling from docker.io/mustakim/go-http-server
+54f7e8ac135a: Already exists
+d6341e30912f: Already exists
+087a57faf949: Already exists
+5d71636fb824: Already exists
+f368dba6a331: Already exists
+f2e97ec220f9: Already exists
+e4c39f2ed8c2: Already exists
+14bb04e394a9: Pulling fs layer
+5fbf5306f137: Pulling fs layer
+5fbf5306f137: Verifying Checksum
+5fbf5306f137: Download complete
+14bb04e394a9: Verifying Checksum
+14bb04e394a9: Download complete
+14bb04e394a9: Pull complete
+5fbf5306f137: Pull complete
+Digest: sha256:ebc23d1ae96bee1df3157d2079f3bec171622d4314d1efc34d092dafed246bbe
+Status: Downloaded newer image for docker.io/mustakim/go-http-server:latest
+0d1db2c2d7bf4e1ab2df2ec111220e19975076cf80557956d818900f486f7b58
+Finished: SUCCESS

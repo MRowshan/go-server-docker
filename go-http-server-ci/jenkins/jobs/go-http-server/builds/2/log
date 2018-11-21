@@ -1,0 +1,48 @@
+Started by an SCM change
+Building in workspace /var/jenkins_home/jobs/go-http-server/workspace
+ > git rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/mrowshan/go-http-server # timeout=10
+Fetching upstream changes from https://github.com/mrowshan/go-http-server
+ > git --version # timeout=10
+ > git fetch --tags --progress https://github.com/mrowshan/go-http-server +refs/heads/*:refs/remotes/origin/*
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+ > git rev-parse refs/remotes/origin/origin/master^{commit} # timeout=10
+Checking out Revision 97affdcdbb0a925b429746921891a92511e89779 (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 97affdcdbb0a925b429746921891a92511e89779
+Commit message: "made go-script executable"
+ > git rev-list --no-walk 132a9f7237ce3504e1cf98511f282fe879220440 # timeout=10
+[workspace] $ /bin/sh -xe /tmp/jenkins1493638006618579992.sh
++ docker=sudo docker
++ application=go-http-server
++ port=9090
++ sudo docker build -t go-http-server .
+Sending build context to Docker daemon  10.39MB
+Step 1/5 : FROM golang
+ ---> df6ac9d1bf64
+Step 2/5 : COPY go/src/app/app /opt/go-http-server/app
+ ---> Using cache
+ ---> df7b3d612ba9
+Step 3/5 : COPY go/src/app/static /opt/go-http-server/static
+ ---> Using cache
+ ---> c84e8ff0da9d
+Step 4/5 : WORKDIR "/opt/go-http-server"
+ ---> Using cache
+ ---> 5d0b7dab237a
+Step 5/5 : ENTRYPOINT /opt/go-http-server/app
+ ---> Using cache
+ ---> e6ce1f4f852f
+Successfully built e6ce1f4f852f
++ sudo docker ps
++ grep go-http-server
+0d1db2c2d7bf        mustakim/go-http-server   "/opt/go-http-server…"   4 minutes ago       Up 4 minutes        0.0.0.0:9090->9090/tcp   go-http-server
++ echo exists
+exists
++ sudo docker stop go-http-server
+go-http-server
++ sudo docker rm go-http-server
+go-http-server
++ sudo docker run -d -p 9090:9090 --name go-http-server mustakim/go-http-server
+2142c802b995c65fa6d8aaab3706575f5c57fb1155772732e1bc74504e76c318
+Finished: SUCCESS

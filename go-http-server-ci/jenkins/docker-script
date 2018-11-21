@@ -1,0 +1,16 @@
+docker="sudo docker"
+application="go-http-server"
+port="9090"
+
+$docker build -t $application .
+#$docker push mustakim/go-http-server
+if $docker ps | grep $application
+then
+        echo "exists"
+        $docker stop $application
+        $docker rm $application
+        $docker run -d -p $port:$port --name $application mustakim/$application
+else
+        echo "doesn't exist"
+        $docker run -d -p $port:$port --name $application mustakim/$application
+fi

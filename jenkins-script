@@ -1,0 +1,27 @@
+#!/bin/bash
+BRANCH_NAME=$(git branch | grep \* | cut -d ' ' -f2)
+echo $BRANCH_NAME
+project="go-http-server"
+container="$project-$BRANCH_NAME"
+image="$project:$BRANCH_NAME"
+docker="sudo docker"
+# stop container if it's running
+if $docker ps | grep $container; then
+        $docker stop $container
+fi
+# delete container if it exists
+if $docker ps -a | grep $container; then
+        $docker rm $container
+fi
+# remove image if it exists
+if $docker images -q $image; then
+        $docker rmi $image
+fi
+$docker build -t $image .
+$docker run -d --name $container $image
+$docker network connect $project-ci_default $container
+echo "location /${project}/${BRANCH_NAME}/ {" > ${container}.conf
+echo -e "\t proxy_pass http://${container}:9090/;" >> ${container}.conf
+echo "}" >> ${container}.conf
+$docker cp ${container}.conf nginx:/etc/nginx/conf.d/${container}.conf
+$docker exec nginx nginx -s reload

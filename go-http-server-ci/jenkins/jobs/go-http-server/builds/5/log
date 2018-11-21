@@ -1,0 +1,53 @@
+Started by GitHub push by MRowshan
+Building in workspace /var/jenkins_home/jobs/go-http-server/workspace
+[WS-CLEANUP] Deleting project workspace...
+[WS-CLEANUP] Deferred wipeout is used...
+[WS-CLEANUP] Done
+Cloning the remote Git repository
+Cloning repository https://github.com/MRowshan/go-http-server
+ > git init /var/jenkins_home/jobs/go-http-server/workspace # timeout=10
+Fetching upstream changes from https://github.com/MRowshan/go-http-server
+ > git --version # timeout=10
+ > git fetch --tags --progress https://github.com/MRowshan/go-http-server +refs/heads/*:refs/remotes/origin/*
+ > git config remote.origin.url https://github.com/MRowshan/go-http-server # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/MRowshan/go-http-server # timeout=10
+Fetching upstream changes from https://github.com/MRowshan/go-http-server
+ > git fetch --tags --progress https://github.com/MRowshan/go-http-server +refs/heads/*:refs/remotes/origin/*
+Seen branch in repository origin/branch1
+Seen branch in repository origin/master
+Seen 2 remote branches
+ > git show-ref --tags -d # timeout=10
+Checking out Revision f28d5ed1733b0639e790e1127f4ff95894a4a3ea (origin/branch1)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f f28d5ed1733b0639e790e1127f4ff95894a4a3ea
+ > git branch -a -v --no-abbrev # timeout=10
+ > git checkout -b branch1 f28d5ed1733b0639e790e1127f4ff95894a4a3ea
+Commit message: "update"
+ > git rev-list --no-walk 0a6bfb356e69eb1ed46e089e4c58728a7e78513e # timeout=10
+[workspace] $ /bin/bash /tmp/jenkins6098784952561910303.sh
+branch1
+Error: No such image: go-http-server:branch1
+Sending build context to Docker daemon  10.06MB
+Step 1/5 : FROM golang
+ ---> df6ac9d1bf64
+Step 2/5 : COPY go/src/app/app /opt/go-http-server/app
+ ---> Using cache
+ ---> df7b3d612ba9
+Step 3/5 : COPY go/src/app/static /opt/go-http-server/static
+ ---> 2f034abe20ed
+Removing intermediate container 14ab622a2844
+Step 4/5 : WORKDIR "/opt/go-http-server"
+ ---> 3ca9c1c79b89
+Removing intermediate container eb6ea28840e1
+Step 5/5 : ENTRYPOINT /opt/go-http-server/app
+ ---> Running in c9aa19abdd3b
+ ---> 1a0aa0108d28
+Removing intermediate container c9aa19abdd3b
+Successfully built 1a0aa0108d28
+7e070c86ed91021ac7827d70988519491d1306b7fa7eb21e68be8967ee3d3851
+Error response from daemon: network go-http-server-ci_default not found
+2018/11/21 14:14:32 [emerg] 14#14: host not found in upstream "go-http-server-(HEAD" in /etc/nginx/conf.d/go-http-server-(HEAD.conf:2
+nginx: [emerg] host not found in upstream "go-http-server-(HEAD" in /etc/nginx/conf.d/go-http-server-(HEAD.conf:2
+Build step 'Execute shell' marked build as failure
+Finished: FAILURE

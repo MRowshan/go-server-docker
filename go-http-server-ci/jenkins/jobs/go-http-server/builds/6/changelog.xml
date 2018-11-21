@@ -1,0 +1,11 @@
+commit dd9e8fec872ccdf8caf5295d85a3fe15da362533
+tree c3ed272443838797c603b9740f5df0cd7ed0a2ff
+parent f28d5ed1733b0639e790e1127f4ff95894a4a3ea
+author mustakimrowshan <mustakimrowshan@gmail.com> 2018-11-21 14:19:31 +0000
+committer mustakimrowshan <mustakimrowshan@gmail.com> 2018-11-21 14:19:31 +0000
+
+    update
+
+
+
+:100644 100644 f285f2c91f08634bca3d82b54f1be954b5c87a89 1918071e79bec274db9ef2623bf0d552710acc3a M	go/src/app/static/index.html
