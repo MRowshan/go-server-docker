@@ -1,9 +1,0 @@
-Started on Nov 21, 2018 1:47:00 PM
-Using strategy: Default
-[poll] Last Built Revision: Revision 132a9f7237ce3504e1cf98511f282fe879220440 (refs/remotes/origin/master)
- > git --version # timeout=10
- > git ls-remote -h https://github.com/mrowshan/go-http-server # timeout=10
-Found 1 remote heads on https://github.com/mrowshan/go-http-server
-[poll] Latest remote head revision on refs/heads/master is: 97affdcdbb0a925b429746921891a92511e89779
-Done. Took 0.5 sec
-Changes found
