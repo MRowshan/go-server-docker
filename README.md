@@ -17,7 +17,7 @@ docker-compose up -d
 Jenkins can be accessed through the public IP address of the vm on port 80 (HTTP Port)
 
 Branches can be accessed from
-`ip-address/go-server-docker/branch-name`
+`http://ip-address/go-server-docker/branch-name`
 
 To change and make branches, clone the 'go-http-server' repo into go-server-docker  
 Run `git checkout -b branch-name` to create a branch
